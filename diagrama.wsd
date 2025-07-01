@@ -1,0 +1,30 @@
+@startuml
+
+class Publicacion{
+    -Contenido: String
+    -fechaPublicacion: Date
+    -cantidadMeGusta: Int 
+    -Comentarios: List<String>
+
+    +darMeGusta(): void 
+    +Comentar(comentario: String, usuario: Usuario):void
+    +eliminar(): void
+
+}
+
+class Usuario{
+    -nombre: String
+    -correo: String 
+    -Publicaciones: List<Publicacion>
+
+    +addPublicacion(comentario: Comentario): void
+    +crearPublicacion(contenido: String): void
+}
+
+class Comentario{
+    -usuario: Usuario
+    -fecha: Date
+    -Contenido: String
+}
+Usuario "0" o-- "'" Publicacion: crea
+@enduml
